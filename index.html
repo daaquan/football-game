@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07130e" />
+    <meta name="description" content="伝説の選手を集めて戦うサッカーカードゲーム、LEGENDS XI。" />
+    <title>LEGENDS XI — Football Card Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="topbar">
+      <button class="brand" data-action="home" aria-label="ホームへ">
+        <span class="brand-mark">L<span>XI</span></span>
+        <span class="brand-copy">LEGENDS <b>XI</b><small>FOOTBALL CARD GAME</small></span>
+      </button>
+      <nav class="desktop-nav" aria-label="メインナビゲーション">
+        <button class="active" data-view="home">ホーム</button>
+        <button data-view="squad">チーム編成</button>
+        <button data-view="cards">カード</button>
+        <button data-view="shop">ショップ</button>
+      </nav>
+      <div class="wallet">
+        <div><span class="gem-icon">◆</span><strong id="gems">1,240</strong></div>
+        <div><span class="coin-icon">●</span><strong id="coins">48,650</strong></div>
+        <button class="profile" aria-label="プロフィール">KM<span class="level">18</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="view active" id="home-view">
+        <div class="hero">
+          <div class="hero-grid"></div>
+          <div class="hero-content">
+            <div class="season"><span>SEASON 01</span><i></i><b>THE IMMORTALS</b></div>
+            <h1>伝説を集め、<br /><em>ピッチを支配せよ。</em></h1>
+            <p>時代を超えた名選手たちで、あなただけの最強イレブンを。</p>
+            <div class="hero-actions">
+              <button class="primary" id="battle-btn"><span>今すぐ対戦</span><b>›</b></button>
+              <button class="secondary" data-view="cards">カードを見る <span>↗</span></button>
+            </div>
+            <div class="season-progress">
+              <span>シーズン終了まで</span><strong>12日 08時間</strong>
+              <div><i></i></div>
+            </div>
+          </div>
+          <div class="hero-players" aria-hidden="true">
+            <div class="aura aura-one"></div><div class="aura aura-two"></div>
+            <div class="player-figure left"><span class="head"></span><span class="body"></span><b>10</b></div>
+            <div class="player-figure center"><span class="head"></span><span class="body"></span><b>7</b></div>
+            <div class="player-figure right"><span class="head"></span><span class="body"></span><b>9</b></div>
+            <div class="player-label label-left"><small>THE MAGICIAN</small><strong>RONALDINHO</strong></div>
+            <div class="player-label label-center"><small>THE PHENOMENON</small><strong>CRISTIANO</strong></div>
+            <div class="player-label label-right"><small>THE KING</small><strong>PELÉ</strong></div>
+          </div>
+        </div>
+
+        <div class="dashboard">
+          <section class="panel next-match" aria-labelledby="next-match-title">
+            <div class="panel-heading"><div><span class="eyebrow">RANKED MATCH</span><h2 id="next-match-title">次の対戦</h2></div><span class="live"><i></i> MATCHDAY <b id="matchday">1</b></span></div>
+            <div class="versus">
+              <div class="team"><span class="crest user-crest">LX</span><strong>LEGENDS FC</strong><small>あなた</small></div>
+              <div class="vs"><small id="division-label">DIVISION 4</small><strong>VS</strong><span id="rival-overall">推奨 OVR 88</span></div>
+              <div class="team"><span class="crest rival-crest">♜</span><strong>ROYAL 1899</strong><small>RIVAL</small></div>
+            </div>
+            <div class="match-footer"><span>勝利報酬</span><b><i class="coin-icon">●</i> <span id="match-reward">2,500</span></b><button id="quick-match">対戦する <span>›</span></button></div>
+          </section>
+
+          <section class="panel daily">
+            <div class="panel-heading"><div><span class="eyebrow">DAILY CHALLENGE</span><h2>今日のチャレンジ</h2></div><span class="timer">あと 08:42:16</span></div>
+            <div class="challenge">
+              <div class="challenge-icon">⚡</div><div><strong>3ゴール決めよう</strong><span>ランクマッチでゴールを決める</span></div><b>2 / 3</b>
+              <div class="bar"><i></i></div>
+            </div>
+            <div class="reward-row"><span>達成報酬</span><b><i class="gem-icon">◆</i> 50</b><button disabled>未達成</button></div>
+          </section>
+        </div>
+
+        <section class="collection-section">
+          <div class="section-title"><div><span class="eyebrow">YOUR COLLECTION</span><h2>注目の選手</h2></div><button data-view="cards">すべて見る <span>→</span></button></div>
+          <div class="card-row" id="featured-cards"></div>
+        </section>
+      </section>
+
+      <section class="view inner-view" id="cards-view">
+        <div class="inner-header"><div><span class="eyebrow">PLAYER ARCHIVE</span><h1>マイカード</h1><p>カードを選択すると能力と経歴を確認できます。</p></div><div class="collection-count"><strong id="owned-count">8</strong><span id="total-count">/ 12 PLAYERS</span></div></div>
+        <div class="filter-row"><div class="filters"><button class="active" data-filter="all">すべて</button><button data-filter="FW">FW</button><button data-filter="MF">MF</button><button data-filter="DF">DF</button><button data-filter="GK">GK</button></div><select id="sort"><option value="rating">OVR順</option><option value="name">名前順</option></select></div>
+        <div class="cards-grid" id="all-cards"></div>
+      </section>
+
+      <section class="view inner-view" id="squad-view">
+        <div class="inner-header"><div><span class="eyebrow">MY SQUAD</span><h1>ファーストチーム</h1><p>獲得した選手から自動でベストイレブンを編成します。</p><button class="secondary compact" id="auto-squad">ベストメンバーを編成</button></div><div class="overall"><span>TEAM OVR</span><strong id="team-overall">—</strong></div></div>
+        <div class="pitch" id="pitch"></div>
+      </section>
+
+      <section class="view inner-view" id="shop-view">
+        <div class="inner-header"><div><span class="eyebrow">TRANSFER MARKET</span><h1>パックショップ</h1><p>新たな伝説との出会いが、ここから始まる。</p></div></div>
+        <div class="packs">
+          <article class="pack standard"><span class="pack-tag">STANDARD</span><div class="pack-art"><b>L<span>XI</span></b><small>LEGENDS PACK</small></div><h2>レジェンズパック</h2><p>選手カード1枚確定</p><button class="buy-pack" data-cost="2500"><i class="coin-icon">●</i> 2,500</button></article>
+          <article class="pack premium"><span class="pack-tag">PREMIUM</span><div class="pack-art"><b>L<span>XI</span></b><small>IMMORTALS PACK</small></div><h2>イモータルパック</h2><p>OVR 88以上の選手1枚確定</p><button class="buy-pack" data-cost="500"><i class="gem-icon">◆</i> 500</button></article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="モバイルナビゲーション"><button class="active" data-view="home">⌂<span>ホーム</span></button><button data-view="squad">⬡<span>スカッド</span></button><button data-view="cards">▤<span>カード</span></button><button data-view="shop">◇<span>ショップ</span></button></nav>
+
+    <div class="modal" id="battle-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="battle-title"><div class="modal-card battle-modal-card"><button class="modal-close" aria-label="閉じる">×</button><span class="eyebrow">MATCH SIMULATION</span><h2 id="battle-title">キックオフ</h2><div class="scoreboard"><div><span class="crest user-crest">LX</span><strong>LEGENDS FC</strong></div><b><span id="score-home">0</span><i>—</i><span id="score-away">0</span></b><div><span class="crest rival-crest">♜</span><strong>ROYAL 1899</strong></div></div><div class="match-minute"><i id="minute-bar"></i></div><div class="commentary" id="commentary" aria-live="polite">両チームの選手がピッチに入場しています…</div><button class="primary full" id="simulate">試合開始</button></div></div>
+    <div class="modal" id="pack-modal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-card reveal"><button class="modal-close" aria-label="閉じる">×</button><span class="eyebrow">NEW SIGNING</span><h2 id="pack-result-title">新しい選手を獲得！</h2><div id="revealed-card"></div><button class="primary full modal-close-action">コレクションへ</button></div></div>
+    <div class="modal" id="player-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="player-detail-name"><div class="modal-card player-detail"><button class="modal-close" aria-label="閉じる">×</button><div id="player-detail-card"></div><div class="detail-copy"><span class="eyebrow">PLAYER PROFILE</span><h2 id="player-detail-name"></h2><p id="player-detail-era"></p><dl id="player-detail-stats"></dl></div></div></div>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
